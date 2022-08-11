@@ -12,7 +12,7 @@ function App() {
   return (
     <StyledApp>
       <GlobalStyle />
-      Testees
+      <div className="app-container"></div>
     </StyledApp>
   );
 }

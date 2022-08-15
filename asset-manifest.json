@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/interactive-rating/static/js/main.a5ce20bb.js",
+    "static/media/illustration-thank-you.svg": "/interactive-rating/static/media/illustration-thank-you.d74a66b551b99ae110b5362ed63106bf.svg",
+    "index.html": "/interactive-rating/index.html",
+    "static/media/icon-star.svg": "/interactive-rating/static/media/icon-star.12766a8d207af861a70f92500634c8be.svg",
+    "main.a5ce20bb.js.map": "/interactive-rating/static/js/main.a5ce20bb.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.a5ce20bb.js"
+  ]
+}

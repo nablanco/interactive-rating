@@ -1,7 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-import Rating from "./Rating/Rating";
-import ThankYou from "./Thank-you/Thank-you";
+import AppContainer from "./AppContainer/AppContainer";
 import Attribution from "./Attribution/Attribution";
 
 const GlobalStyle = createGlobalStyle`
@@ -22,22 +21,12 @@ const StyledApp = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
-const AppContainer = styled.div`
-  display: flex;
-  width: 350px;
-  height: 375px;
-  border-radius: 20px;
-  background: linear-gradient(180deg, hsl(213, 19%, 16%), hsl(213, 19%, 10%));
-`;
 
 function App() {
   return (
     <StyledApp>
       <GlobalStyle />
-      <AppContainer>
-        <Rating />
-        <ThankYou />
-      </AppContainer>
+      <AppContainer />
       <Attribution />
     </StyledApp>
   );

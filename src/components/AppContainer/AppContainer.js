@@ -5,12 +5,15 @@ import { useState } from "react";
 import IconStar from "../../images/icon-star.svg";
 import Buttons from "../Buttons/Buttons";
 
-const StyledRatingContainer = styled.div`
+const StyledAppContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-  height: 325px;
-  margin: 25px;
+  width: 350px;
+  height: 375px;
+  padding: 25px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, hsl(213, 19%, 16%), hsl(213, 19%, 10%));
 `;
 const StarContainer = styled.div`
   display: flex;
@@ -25,7 +28,7 @@ const StarContainer = styled.div`
 const StarImage = styled.img``;
 const Header = styled.h2`
   color: white;
-  font-weight: 500;
+  font-weight: 600;
 `;
 const Paragraph = styled.p`
   font-size: 15px;
@@ -51,36 +54,42 @@ const SubmitButton = styled.div`
     cursor: pointer;
   }
 
-  &.active:hover {
-    color: white;
-    background-color: hsl(25, 97%, 53%);
-    cursor: pointer;
-  }
-
-  &.active {
+  &:active {
     color: white;
     background-color: hsl(25, 97%, 53%);
     cursor: pointer;
   }
 `;
 
-const RatingContainer = () => {
+const AppContainer = () => {
+  const [submitted, setSubmitted] = useState(false);
   const [rating, setRating] = useState(0);
-  console.log(rating);
-  return (
-    <StyledRatingContainer>
-      <StarContainer>
-        <StarImage src={IconStar} />
-      </StarContainer>
-      <Header>How did we do?</Header>
-      <Paragraph>
-        Please let us know how we did with your support request. All feedback is
-        appreciated to help us improve our offering!
-      </Paragraph>
-      <Buttons handleClick={setRating} />
-      <SubmitButton>Submit</SubmitButton>
-    </StyledRatingContainer>
-  );
+
+  console.log(submitted, rating);
+
+  const handleSubmit = (e) => {
+    // e.preventDefault();
+    setSubmitted(true);
+  };
+
+  if (!submitted) {
+    return (
+      <StyledAppContainer>
+        <StarContainer>
+          <StarImage src={IconStar} />
+        </StarContainer>
+        <Header>How did we do?</Header>
+        <Paragraph>
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </Paragraph>
+        <Buttons handleRating={setRating} />
+        <SubmitButton onClick={handleSubmit}>Submit</SubmitButton>
+      </StyledAppContainer>
+    );
+  } else {
+    return <div>Hello</div>;
+  }
 };
 
-export default RatingContainer;
+export default AppContainer;

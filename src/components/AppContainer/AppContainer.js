@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
 
-import IconStar from "../../images/icon-star.svg";
+import StarIcon from "../../images/icon-star.svg";
+import ThankYouIllustration from "../../images/illustration-thank-you.svg";
 import Buttons from "../Buttons/Buttons";
 
-const StyledAppContainer = styled.div`
+const StyledRatingContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
@@ -60,6 +61,30 @@ const SubmitButton = styled.div`
     cursor: pointer;
   }
 `;
+const StyledThankYouContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 350px;
+  height: 375px;
+  padding: 25px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, hsl(213, 19%, 16%), hsl(213, 19%, 10%));
+`;
+const ThankYouImage = styled.img`
+  width: 60%;
+`;
+const SelectedRaitingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 210px;
+  height: 45px;
+  color: hsl(25, 97%, 53%);
+  background: hsl(213, 19%, 20%);
+  border-radius: 25px;
+`;
 
 const AppContainer = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -74,9 +99,9 @@ const AppContainer = () => {
 
   if (!submitted) {
     return (
-      <StyledAppContainer>
+      <StyledRatingContainer>
         <StarContainer>
-          <StarImage src={IconStar} />
+          <StarImage src={StarIcon} />
         </StarContainer>
         <Header>How did we do?</Header>
         <Paragraph>
@@ -85,10 +110,22 @@ const AppContainer = () => {
         </Paragraph>
         <Buttons handleRating={setRating} />
         <SubmitButton onClick={handleSubmit}>Submit</SubmitButton>
-      </StyledAppContainer>
+      </StyledRatingContainer>
     );
   } else {
-    return <div>Hello</div>;
+    return (
+      <StyledThankYouContainer>
+        <ThankYouImage src={ThankYouIllustration} />
+        <SelectedRaitingContainer>
+          You selected {rating} out of 5
+        </SelectedRaitingContainer>
+        <Header>Thank You!</Header>
+        <Paragraph style={{ textAlign: "center" }}>
+          We appreciate you taking the time to give a rating. If you ever need
+          more support, don’t hesitate to get in touch!
+        </Paragraph>
+      </StyledThankYouContainer>
+    );
   }
 };
 

@@ -16,8 +16,8 @@ const StyledButton = styled.div`
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: hsl(213, 19%, 20%);
   -webkit-user-select: none; /* Safari */

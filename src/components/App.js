@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 body {
   background-color: #131518;
   color: hsl(217, 12%, 63%);
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 `;
 

@@ -21,19 +21,22 @@ const StarContainer = styled.div`
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: hsl(213, 19%, 20%);
 `;
 const StarImage = styled.img``;
 const Header = styled.h2`
   color: white;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 35px;
+  letter-spacing: 1px;
 `;
 const Paragraph = styled.p`
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 24px;
   font-weight: 400;
 `;
 const SubmitButton = styled.div`
@@ -41,9 +44,11 @@ const SubmitButton = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 40px;
+  height: 50px;
   border-radius: 25px;
   color: white;
+  font-weight: 500;
+  letter-spacing: 2px;
   background-color: hsl(25, 97%, 53%);
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
@@ -73,7 +78,7 @@ const StyledThankYouContainer = styled.div`
   background: linear-gradient(180deg, hsl(213, 19%, 16%), hsl(213, 19%, 10%));
 `;
 const ThankYouImage = styled.img`
-  width: 60%;
+  /* width: 60%; */
 `;
 const SelectedRaitingContainer = styled.div`
   display: flex;
@@ -91,40 +96,35 @@ const AppContainer = () => {
   const [rating, setRating] = useState(0);
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
     setSubmitted(true);
   };
 
-  if (!submitted) {
-    return (
-      <StyledRatingContainer>
-        <StarContainer>
-          <StarImage src={StarIcon} />
-        </StarContainer>
-        <Header>How did we do?</Header>
-        <Paragraph>
-          Please let us know how we did with your support request. All feedback
-          is appreciated to help us improve our offering!
-        </Paragraph>
-        <Buttons handleRating={setRating} />
-        <SubmitButton onClick={handleSubmit}>Submit</SubmitButton>
-      </StyledRatingContainer>
-    );
-  } else {
-    return (
-      <StyledThankYouContainer>
-        <ThankYouImage src={ThankYouIllustration} />
-        <SelectedRaitingContainer>
-          You selected {rating} out of 5
-        </SelectedRaitingContainer>
-        <Header>Thank You!</Header>
-        <Paragraph style={{ textAlign: "center" }}>
-          We appreciate you taking the time to give a rating. If you ever need
-          more support, don’t hesitate to get in touch!
-        </Paragraph>
-      </StyledThankYouContainer>
-    );
-  }
+  return !submitted ? (
+    <StyledRatingContainer>
+      <StarContainer>
+        <StarImage src={StarIcon} />
+      </StarContainer>
+      <Header>How did we do?</Header>
+      <Paragraph>
+        Please let us know how we did with your support request. All feedback is
+        appreciated to help us improve our offering!
+      </Paragraph>
+      <Buttons handleRating={setRating} />
+      <SubmitButton onClick={handleSubmit}>SUBMIT</SubmitButton>
+    </StyledRatingContainer>
+  ) : (
+    <StyledThankYouContainer>
+      <ThankYouImage src={ThankYouIllustration} />
+      <SelectedRaitingContainer>
+        You selected {rating} out of 5
+      </SelectedRaitingContainer>
+      <Header>Thank You!</Header>
+      <Paragraph style={{ textAlign: "center" }}>
+        We appreciate you taking the time to give a rating. If you ever need
+        more support, don’t hesitate to get in touch!
+      </Paragraph>
+    </StyledThankYouContainer>
+  );
 };
 
 export default AppContainer;

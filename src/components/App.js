@@ -1,7 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 import AppContainer from "./AppContainer/AppContainer";
-import Attribution from "./Attribution/Attribution";
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -27,7 +26,6 @@ function App() {
     <StyledApp>
       <GlobalStyle />
       <AppContainer />
-      <Attribution />
     </StyledApp>
   );
 }

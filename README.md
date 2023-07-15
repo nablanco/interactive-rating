@@ -24,7 +24,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./design/Interative-Rating-Screenshot.png)
+![](./screenshot.png)
 
 ### Links
 

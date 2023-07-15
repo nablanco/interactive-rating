@@ -95,8 +95,6 @@ const AppContainer = () => {
   const [submitted, setSubmitted] = useState(false);
   const [rating, setRating] = useState(0);
 
-  console.log(submitted, rating);
-
   const handleSubmit = (e) => {
     setSubmitted(true);
   };
